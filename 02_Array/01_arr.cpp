@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
 // function for reference..................................
 void changeArr(int arr[], int size)
 {
@@ -11,7 +10,6 @@ void changeArr(int arr[], int size)
         arr[i] = 2 * arr[i];
     }
 }
-
 
 int main()
 {
@@ -69,6 +67,9 @@ int main()
             index1 = i;
         }
     }
+
+    cout << smallest << endl;
+    cout << largest << endl;
 
     cout << "smallest no. index : " << index << endl;
     cout << "largest no. index : " << index1 << endl;
