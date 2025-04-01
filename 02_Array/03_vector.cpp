@@ -14,16 +14,19 @@ int main()
 
     vector<int> vec;
 
-    cout << "size : " << vec.size() << endl;
     vec.push_back(22);
     vec.push_back(33);
     vec.push_back(44);
+    vec.push_back(42);
+    vec.push_back(47);
 
-    cout << "After push back size : " << vec.size() << endl;
+    cout << "size : " << vec.size() << endl;
+    cout << "capacity : " << vec.capacity() << endl;
+    // cout << "After push back size : " << vec.size() << endl;
 
-    vec.pop_back();
+    // vec.pop_back();
 
-    cout << "After pop back size : " << vec.size() << endl;
+    // cout << "After pop back size : " << vec.size() << endl;
 
     // for (int i : vec) // for each loop.........
     // {
@@ -32,6 +35,6 @@ int main()
 
     // cout << vec.front() << endl;
     // cout << vec.back() << endl;
-    cout << vec.at(0) << endl;
-    return 0;
+    // cout << vec.at(0) << endl;
+    // return 0;
 }
