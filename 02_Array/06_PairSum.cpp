@@ -2,6 +2,8 @@
 #include <vector>
 using namespace std;
 
+// pair Sum......................
+
 vector<int> pairSum(vector<int> nums, int target)
 {
     vector<int> ans;
