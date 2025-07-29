@@ -32,9 +32,18 @@ int gcdrec(int a, int b)
     return gcdrec(b, a % b);
 }
 
+// lcm............................................
+
+int lcm(int a, int b)
+{
+    int gcd = gcdrec(a, b);
+    return a * b / gcd;
+}
+
 int main()
 {
     cout << GCD(20, 28) << endl;
     cout << gcdrec(20, 28) << endl;
+    cout << lcm(20, 28) << endl;
     return 0;
 }
