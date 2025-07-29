@@ -24,5 +24,7 @@ int main()
     int n = 3468;
 
     printdigit(n);
+
+    cout << (int)(log10(n) + 1) << endl;
     return 0;
 }
