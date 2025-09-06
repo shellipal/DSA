@@ -35,6 +35,16 @@ public:
         this->salary = salary;
     }
 
+    // copy constructor......
+    Teacher(Teacher &orgObj)
+    {
+        cout << "This is custom copy constructor" << endl;
+        this->name = orgObj.name;
+        this->dept = orgObj.dept;
+        this->subject = orgObj.subject;
+        this->salary = orgObj.salary;
+    }
+
     void getInfo()
     {
         cout << "Name: " << name << endl;
@@ -82,6 +92,9 @@ int main()
     // cout << t1.getSalary() << endl;
     // cout << t1.dept << endl;
 
-    t1.getInfo();
+    // t1.getInfo();
+
+    Teacher t2(t1); // custom copy constructor -invoke...
+    t2.getInfo();
     return 0;
 }
