@@ -89,6 +89,37 @@ public:
         tail = temp;
     }
 
+    void Insert(int val, int pos)
+    {
+        if (pos < 0)
+        {
+            cout << "invalid pos\n";
+            return;
+        }
+
+        if (pos == 0)
+        {
+            push_front(val);
+            return;
+        }
+
+        Node *temp = head;
+        for (int i = 0; i < pos - 1; i++)
+        {
+            if (temp == NULL)
+            {
+                cout << "Invalid pos\n";
+                return;
+            }
+
+            temp = temp->next;
+        }
+
+        Node *newNode = new Node(val);
+        newNode->next = temp->next;
+        temp->next = newNode;
+    }
+
     void Printll()
     {
         Node *temp = head;
@@ -100,24 +131,45 @@ public:
         }
         cout << "NULL" << endl;
     }
+
+    int search(int key)
+    {
+        Node *temp = head;
+        int idx = 0;
+
+        while (temp != NULL)
+        {
+            if (temp->data == key)
+            {
+                return idx;
+            }
+
+            temp = temp->next;
+            idx++;
+        }
+        return -1;
+    }
 };
 
 int main()
 {
     List ll;
 
-    ll.push_back(1);
-    ll.push_back(2);
-    ll.push_back(3);
-    // ll.push_front(2);
-    // ll.push_front(3);
-    // ll.push_front(4);
+    // ll.push_back(1);
+    // ll.push_back(2);
+    // ll.push_back(3);
+    ll.push_front(3);
+    ll.push_front(2);
+    ll.push_front(1);
+
+    ll.Insert(4, 0);
 
     // ll.pop_front();
 
     ll.Printll();
-    ll.pop_back();
-    ll.Printll();
+    // ll.pop_back();
+    // ll.Printll();
 
+    cout << ll.search(2) << endl;
     return 0;
 }
