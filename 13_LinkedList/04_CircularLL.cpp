@@ -57,7 +57,57 @@ public:
         }
     }
 
-    void print()
+    void deleteAtHead()
+    {
+        if (head == NULL)
+        {
+            return;
+        }
+        else if (head == tail)
+        {
+            delete head;
+            head = tail = NULL;
+        }
+        else
+        {
+            Node *temp = head;
+            head = head->next;
+            tail->next = head;
+
+            temp->next = NULL;
+            delete temp;
+        }
+    }
+
+    void deleteAtTail()
+    {
+        if (head == NULL)
+        {
+            return;
+        }
+        else if (head == tail)
+        {
+            delete head;
+            head = tail = NULL;
+        }
+        else
+        {
+            Node *temp = tail;
+            Node *prev = head;
+
+            while (prev->next != tail)
+            {
+                prev = prev->next;
+            }
+            tail = prev;
+            tail->next = head;
+            temp->next = NULL;
+            delete temp;
+        }
+    }
+
+    void
+    print()
     {
         if (head == NULL)
         {
@@ -83,10 +133,22 @@ int main()
     // cll.insertAtHead(2);
     // cll.insertAtHead(3);
 
-    cll.insertAtTail(4);
-    cll.insertAtTail(5);
-    cll.insertAtTail(6);
+    cll.insertAtTail(1);
+    cll.insertAtTail(2);
+    cll.insertAtTail(3);
 
     cll.print();
+    // cll.deleteAtHead();
+    // cll.deleteAtHead();
+
+    cll.deleteAtTail();
+    cll.print();
+
+    cll.deleteAtTail();
+    cll.print();
+
+    cll.deleteAtTail();
+    cll.print();
+
     return 0;
 }
