@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 using namespace std;
 
 class Node
@@ -33,7 +34,7 @@ Node *BuildTree(vector<int> preorder)
     return root;
 }
 
-// preorder.......
+// preorder traversal.......
 void preOrder(Node *root)
 {
     if (root == NULL)
@@ -46,6 +47,7 @@ void preOrder(Node *root)
     preOrder(root->right);
 }
 
+// inorder traversal.....
 void inOrder(Node *root)
 {
     if (root == NULL)
@@ -56,6 +58,60 @@ void inOrder(Node *root)
     inOrder(root->left);
     cout << root->data << " ";
     inOrder(root->right);
+}
+
+// postorder traversal......
+void postOrder(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    postOrder(root->left);
+    postOrder(root->right);
+    cout << root->data << " ";
+}
+
+// levelorder traversal.........
+void levelOrder(Node *root)
+{
+    queue<Node *> q;
+
+    q.push(root);
+    q.push(NULL);
+
+    while (q.size() > 0)
+    {
+        Node *current = q.front();
+        q.pop();
+
+        if (current == NULL)
+        {
+            if (!q.empty())
+            {
+                cout << endl;
+                q.push(NULL);
+                continue;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        cout << current->data << " ";
+
+        if (current->left != NULL)
+        {
+            q.push(current->left);
+        }
+        if (current->right != NULL)
+        {
+            q.push(current->right);
+        }
+    }
+    cout << endl;
 }
 
 int main()
@@ -73,5 +129,10 @@ int main()
 
     inOrder(root);
     cout << endl;
+
+    postOrder(root);
+    cout << endl;
+
+    levelOrder(root);
     return 0;
 }
