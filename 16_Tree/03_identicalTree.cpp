@@ -29,6 +29,21 @@ bool isSameTree(Node *p, Node *q)
     return isLeftSame && isRightSame && p->data == q->data;
 }
 
+bool isSubTree(Node *root, Node *subroot)
+{
+    if (root == NULL || subroot == NULL)
+    {
+        return root == subroot;
+    }
+
+    if (root->data == subroot->data && isSameTree(root, subroot))
+    {
+        return true;
+    }
+
+    return isSubTree(root->left, subroot) || isSubTree(root->right, subroot);
+}
+
 int main()
 {
 }
