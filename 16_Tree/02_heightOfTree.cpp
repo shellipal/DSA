@@ -60,6 +60,19 @@ int count(Node *root)
     return leftCount + rightCount + 1;
 }
 
+// sum of nodes............
+int sumOfNodes(Node *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+
+    int leftsum = sumOfNodes(root->left);
+    int rightsum = sumOfNodes(root->right);
+    return leftsum + rightsum + root->data;
+}
+
 int main()
 {
 
@@ -69,5 +82,6 @@ int main()
 
     cout << "Height : " << height(root) << endl;
     cout << "Count : " << count(root) << endl;
+    cout << "Sum of Nodes : " << sumOfNodes(root) << endl;
     return 0;
 }
